@@ -17,9 +17,28 @@ class Register extends Component {
 		});
 	};
 
-	render() {
-		const { onRouteChange } = this.props;
+	onSubmitSignIn = event => {
+		fetch("http://localhost:3000/register", {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json"
+			},
+			body: JSON.stringify({
+				name: this.state.name,
+				email: this.state.email,
+				password: this.state.password
+			})
+		})
+			.then(res => res.json())
+			.then(user => {
+				if (user) {
+					this.props.loadUser(user);
+					this.props.onRouteChange("home");
+				}
+			});
+	};
 
+	render() {
 		return (
 			<article className="br3 ba dark-gray b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center">
 				<main className="pa4 black-80">
@@ -68,7 +87,7 @@ class Register extends Component {
 								className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib"
 								type="submit"
 								value="Register"
-								onClick={() => onRouteChange("home")}
+								onClick={this.onSubmitSignIn}
 							/>
 						</div>
 					</div>
