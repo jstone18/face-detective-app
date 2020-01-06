@@ -11,6 +11,12 @@ class Register extends Component {
 		};
 	}
 
+	onInputChange = e => {
+		this.setState({
+			[e.target.name]: e.target.value
+		});
+	};
+
 	render() {
 		const { onRouteChange } = this.props;
 
@@ -29,6 +35,7 @@ class Register extends Component {
 									type="text"
 									name="name"
 									id="name"
+									onChange={this.onInputChange}
 								/>
 							</div>
 							<div className="mt3">
@@ -38,8 +45,9 @@ class Register extends Component {
 								<input
 									className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100"
 									type="email"
-									name="email-address"
+									name="email"
 									id="email-address"
+									onChange={this.onInputChange}
 								/>
 							</div>
 							<div className="mv3">
@@ -51,6 +59,7 @@ class Register extends Component {
 									type="password"
 									name="password"
 									id="password"
+									onChange={this.onInputChange}
 								/>
 							</div>
 						</fieldset>
