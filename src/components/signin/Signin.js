@@ -10,14 +10,11 @@ class Signin extends Component {
 		};
 	}
 
-	onEmailChange = event => {
-		this.setState({ signInEmail: event.target.value });
+	onInputChange = e => {
+		this.setState({
+			[e.target.name]: e.target.value
+		});
 	};
-
-	onPasswordChange = event => {
-		this.setState({ signInPassword: event.target.value });
-	};
-
 	onSubmitSignIn = event => {
 		fetch("http://localhost:3000/signin", {
 			method: "POST",
@@ -52,9 +49,9 @@ class Signin extends Component {
 								<input
 									className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100"
 									type="email"
-									name="email-address"
+									name="signInEmail"
 									id="email-address"
-									onChange={this.onEmailChange}
+									onChange={this.onInputChange}
 								/>
 							</div>
 							<div className="mv3">
@@ -64,9 +61,9 @@ class Signin extends Component {
 								<input
 									className="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100"
 									type="password"
-									name="password"
+									name="signInPassword"
 									id="password"
-									onChange={this.onPasswordChange}
+									onChange={this.onInputChange}
 								/>
 							</div>
 						</fieldset>
