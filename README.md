@@ -1,6 +1,6 @@
 ## README
 
-This is the React frontend for "Face Detective". The backend for this application can be found [here](https://github.com/jstone18/face-detective-app). The deployed version of this application is [here](https://face-detective-app.herokuapp.com/)
+This is the React frontend for "Face Detective". The backend for this application can be found [here](https://github.com/jstone18/face-detective-api). The deployed version of this application is [here](https://face-detective-app.herokuapp.com/)
 Face Detective is an image recognition application that takes an uploaded image and detects human faces in the image.
 In order to use the application, a user must sign in to an existing account or create a new account. Once signed into
 the application, users can upload images and detect faces. The application also keeps track of the total count of detectable
